@@ -1,0 +1,22 @@
+{
+  "manifest_version": 3,
+  "name": "Game Lord",
+  "version": "1.0.0",
+  "description": "A basic extention for playing games while you have no internet!",
+  "icons": {
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "permissions": ["scripting", "tabs"],
+  "host_permissions": ["http://*/*", "https://*/*"]
+}

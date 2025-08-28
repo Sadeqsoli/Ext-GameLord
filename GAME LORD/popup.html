@@ -3,22 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <title>Game Lord</title>
-    <script type="module" src="src/popup/popup.tsx"></script>
     <style>
       body {
         margin: 0;
-        padding: 0;
+        font-family: sans-serif;
+        background: #111;
+        color: white;
         width: 320px; /* popup width */
         height: auto;
-        background: #111;
       }
       #root {
         width: 100%;
-        min-height: 200px;
+        height: 100%;
       }
     </style>
   </head>
   <body>
     <div id="root"></div>
+    <script type="module" src="src/popup/popup.tsx"></script>
   </body>
 </html>

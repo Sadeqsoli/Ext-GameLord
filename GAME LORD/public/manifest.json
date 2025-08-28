@@ -1,13 +1,19 @@
 {
-  "manifest_version": 3,
+  "manifest_version": 2,
   "name": "Game Lord",
   "version": "1.0.0",
-  "description": "A basic extention for playing games while you have no internet!",
+  "description": "A basic extension for playing games while you have no internet!",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "game-lord@sleeplessgeek.com",
+      "strict_min_version": "78.0"
+    }
+  },
   "icons": {
     "48": "icons/icon-48.png",
     "128": "icons/icon-128.png"
   },
-  "action": {
+  "browser_action": {
     "default_popup": "popup.html",
     "default_icon": {
       "48": "icons/icon-48.png",
@@ -15,8 +21,8 @@
     }
   },
   "background": {
-    "service_worker": "background.js"
+    "scripts": ["background.js"]
   },
-  "permissions": ["scripting", "tabs"],
+  "permissions": ["tabs"],
   "host_permissions": ["http://*/*", "https://*/*"]
 }

@@ -1,13 +1,125 @@
-<!-- dino.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dino Game</title>
+    <title>Dino Runner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --bg: #fff;
+        --fg: #000;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial, sans-serif;
+      }
+      .wrap {
+        display: grid;
+        place-items: center;
+        height: 100%;
+        padding: 12px;
+      }
+      .game {
+        position: relative;
+        width: 720px;
+        max-width: 100vw;
+        height: 220px;
+        border: 2px solid var(--fg);
+        overflow: hidden;
+        background: var(--bg);
+      }
+      .ground {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 4px;
+        background: var(--fg);
+      }
+      .dino {
+        position: absolute;
+        left: 40px;
+        bottom: 4px;
+        width: 36px;
+        height: 44px;
+        background: var(--fg);
+        transform-origin: center bottom;
+        transition: transform 60ms linear;
+      }
+      .cactus {
+        position: absolute;
+        bottom: 4px;
+        width: 16px;
+        height: 36px;
+        background: var(--fg);
+      }
+      .score {
+        position: absolute;
+        top: 6px;
+        right: 8px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        background: rgba(255, 255, 255, 0.8);
+        color: #000;
+        padding: 2px 6px;
+        border: 1px solid #000;
+      }
+      .overlay {
+        position: absolute;
+        inset: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.7);
+        color: #000;
+        text-align: center;
+        gap: 12px;
+        flex-direction: column;
+      }
+      .overlay.show {
+        display: flex;
+      }
+      .overlay h1 {
+        margin: 0;
+        font-size: 20px;
+      }
+      .overlay button {
+        border: 1px solid #000;
+        background: #000;
+        color: #fff;
+        padding: 8px 14px;
+        cursor: pointer;
+      }
+      .hint {
+        margin-top: 8px;
+        font-size: 12px;
+        opacity: 0.75;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/games/Dino/index.tsx"></script>
+    <div class="wrap">
+      <div class="game" id="game">
+        <div class="score" id="score">00000</div>
+        <div class="dino" id="dino" aria-label="dino"></div>
+        <div class="ground"></div>
+        <div class="overlay" id="overlay">
+          <h1>Game Over</h1>
+          <button id="restartBtn">Restart</button>
+        </div>
+      </div>
+      <div class="hint">Press Space or ↑ to jump</div>
+    </div>
+
+    <script type="module" src="./src/games/Dino/dino-standalone.js"></script>
   </body>
 </html>
